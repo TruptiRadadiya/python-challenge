@@ -61,6 +61,7 @@ for i in range(1, len(profit_loss_dict["Profit/Losses"])):
         greatest_decrease = decrease
         greatest_decrease_date = profit_loss_dict["Date"][i]
 
+# Print the results to the terminal
 print("Financial Analysis")
 print("-----------------------------------")
 print(f"Total Months: {total_months}")
