@@ -55,13 +55,13 @@ winner = [candidate for candidate, votes in candidates_votes_dict.items() if vot
 
 # Print the results to the terminal
 print("Election Results")
-print("-----------------------------------")
+print("--------------------------------------------------")
 print(f"Total Votes: {total_votes}")
-print("-----------------------------------")
+print("--------------------------------------------------")
 print_candidate_result(candidates_votes_dict)
-print("-----------------------------------")
+print("--------------------------------------------------")
 print(f"Winner: {', '.join(winner)}")
-print("-----------------------------------")
+print("--------------------------------------------------")
 
 # Give a path of a file to write to
 output_path = os.path.join("Analysis","output.txt")
