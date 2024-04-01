@@ -2,7 +2,7 @@
 import os
 import csv
 
-# Set path to read a file
+# Set path to read a 'budget_data.csv' file
 csvpath = os.path.join("Resources","budget_data.csv")
 
 # Dictionary to store csv file data
@@ -15,7 +15,7 @@ with open(csvpath) as csvfile:
     # Read the header row
     csv_header = next(csvreader)
 
-    # Add data to the dictionary 
+    # Add data to the profit_loss_dict dictionary 
     for row in csvreader:
         profit_loss_dict["Date"].append(row[0])
         profit_loss_dict["Profit/Losses"].append(row[1])
@@ -25,9 +25,9 @@ with open(csvpath) as csvfile:
 total_months = len(profit_loss_dict["Date"])    
 
 # Calculate net total amount of "Profit/Losses" over the entire period
-total = sum(int(num) for num in profit_loss_dict["Profit/Losses"])
+total = sum(int(num) for num in profit_loss_dict["Profit/Losses"]) # used a list comprehention and inbuilt sum function, returns a total 
 
-# Calculate changes in "Profit/Losses" over the entire period, and then the average of those changes
+# Calculate changes in "Profit/Losses" over the entire period, and then the average of those changes 'used list comprehension, returns a list of integers'
 changes = [int(profit_loss_dict["Profit/Losses"][i]) - int(profit_loss_dict["Profit/Losses"][i-1]) for i in range(1, len(profit_loss_dict["Profit/Losses"]))]
 avg_change = sum(changes) / len(changes)
 
@@ -38,9 +38,14 @@ greatest_increase_date = ""
 
 # Loop through each record of profit_loss_dict
 for i in range(1, len(profit_loss_dict["Profit/Losses"])):
+
+    # Initialize variables to keep track of current and previous record to calculate increase
     current_record = int(profit_loss_dict["Profit/Losses"][i])
     previous_record = int(profit_loss_dict["Profit/Losses"][i-1])
+
+    # Calculate increase
     increase = current_record - previous_record
+
     # Check if increase is greater than greatest increase
     if increase > greatest_increase:
         greatest_increase = increase
@@ -53,9 +58,14 @@ greatest_decrease_date = ""
 
 # Loop through each record of profit_loss_dict
 for i in range(1, len(profit_loss_dict["Profit/Losses"])):
+
+    #Initialize variables to keep track of current and previous record to calculate decrease
     current_record = int(profit_loss_dict["Profit/Losses"][i])
     previous_record = int(profit_loss_dict["Profit/Losses"][i-1])
+
+    # Calculate decrease
     decrease = current_record - previous_record
+
     # Check if decrease is lesser than greatest decrease
     if decrease < greatest_decrease:
         greatest_decrease = decrease
@@ -76,7 +86,7 @@ output_path = os.path.join("Analysis","output.txt")
 # Open the file with "write" mode
 with open(output_path, 'w') as textfile:
 
-    # Write to the output.txt file
+    # Write results to the output.txt file
     textfile.write("Financial Analysis\n")
     textfile.write("-----------------------------------\n")
     textfile.write(f"Total Months: {total_months}\n")

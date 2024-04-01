@@ -9,13 +9,13 @@ This Python script is designed to analyze the financial records of a company usi
 - Python 3.x
 - budget_data.csv (provided dataset)
 
-  - Create Resources folder in the main directory and place csv file in the resources folder
+  - Create 'Resources' folder in the main directory and place csv file in the resources folder
 
 ### How to use the code?
 
-- Ensure that 'budegt_data.csv' is placed in the Resources folder as mentioned above
+- Ensure that 'budegt_data.csv' is placed in the 'Resources' folder as mentioned above
 - Run the script by executing 'python main.py' in the command line
-- Script will print the analysis result to the terminal and export it to the 'output.txt' file
+- Script will print the analysis result to the terminal and export it to the 'output.txt' file in 'Analysis' folder in main project directory
 
 ### Expected Results
 
@@ -29,13 +29,14 @@ This Python script assists a small, rural U.S. town in modernizing its vote-coun
 
 - Python 3.x
 - election_data.csv (provided dataset)
-  - Create Resources folder in the main directory and place csv file in the resources folder
+
+  - Create 'Resources' folder in the main directory and place csv file in the resources folder
 
 ### How to use the code?
 
-- Ensure that 'election_data.csv' is placed in the Resources folder as mentioned above
+- Ensure that 'election_data.csv' is placed in the 'Resources' folder as mentioned above
 - Run the script by executing 'python main.py' in the command line
-- Script will print the analysis result to the terminal and export it to the 'output.txt' file
+- Script will print the analysis result to the terminal and export it to the 'output.txt' file in 'Analysis' folder in main project directory
 
 ### Expected Results
 

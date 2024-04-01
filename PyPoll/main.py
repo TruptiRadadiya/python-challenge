@@ -2,7 +2,7 @@
 import os
 import csv
 
-# Set path to read a file
+# Set path to read a 'election_data.csv' file
 csvpath = os.path.join("Resources","election_data.csv")
 
 # Dictionary to store csv file data
@@ -15,7 +15,7 @@ with open(csvpath) as csvfile:
     # Read the header row
     csv_header = next(csvreader)
 
-    # Add data to the dictionary
+    # Add data to the election_dict dictionary
     for row in csvreader:
         election_dict["Ballot_id"].append(row[0])
         election_dict["County"].append(row[1])
@@ -25,11 +25,12 @@ with open(csvpath) as csvfile:
 total_votes = len(election_dict["Ballot_id"])
 
 # A complete list of candidates who received votes
-# Initialize a dictionary to hold candidates and associated votes from the election_dict
+# Initialize a candidates_votes_dict dictionary to hold candidates and associated votes from the election_dict
 candidates_votes_dict = {}
 
-# Loop through candidates list 
+# Loop through candidates list from election_dict
 for candidate in election_dict["Candidate"]:
+
     # Count occurances of each candidate to calculate total vote for each candidate
     if candidate in candidates_votes_dict:
         candidates_votes_dict[candidate] += 1
@@ -48,6 +49,7 @@ def print_candidate_result(dict):
         print(f"{candidate}: {percentage:0.3f}% ({votes})")
 
 # Calculate the winner of the election based on popular vote
+# Find the maximum votes from candidates_votes_dict using max function
 max_votes = max(candidates_votes_dict.values())
 
 # Set the candidate as a winner from the list of candidates who has maximum votes as calculated max_votes
@@ -60,7 +62,7 @@ print(f"Total Votes: {total_votes}")
 print("--------------------------------------------------")
 print_candidate_result(candidates_votes_dict)
 print("--------------------------------------------------")
-print(f"Winner: {', '.join(winner)}")
+print(f"Winner: {', '.join(winner)}") # if more than one winners join them by ',' else print the one winner 
 print("--------------------------------------------------")
 
 # Give a path of a file to write to
