@@ -19,7 +19,7 @@ This Python script is designed to analyze the financial records of a company usi
 
 ### Expected Results
 
-![alt text](image.png)
+![alt text](bank_results.png)
 
 ## PyPoll - helping a small, rural U.S. town modernise its vote-counting process.
 
@@ -39,4 +39,4 @@ This Python script assists a small, rural U.S. town in modernizing its vote-coun
 
 ### Expected Results
 
-![alt text](image-1.png)
+![alt text](election_results.png)
