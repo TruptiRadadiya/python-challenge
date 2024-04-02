@@ -43,10 +43,13 @@ for candidate in election_dict["Candidate"]:
         candidates_votes_dict.append(candidate)
 
 # print the total number of votes each candidate won and the percentage of votes each candidate won
-def print_candidate_result(dict):
-    for candidate, votes in dict.items():
+def print_candidate_result(input_dict, is_output_file):
+    for candidate, votes in input_dict.items():
         percentage = (votes / total_votes) * 100
-        print(f"{candidate}: {percentage:0.3f}% ({votes})")
+        if(is_output_file):
+            textfile.write(f"{candidate}: {percentage:0.3f}% ({votes})\n")
+        else:
+            print(f"{candidate}: {percentage:0.3f}% ({votes})")
 
 # Calculate the winner of the election based on popular vote
 # Find the maximum votes from candidates_votes_dict using max function
@@ -60,7 +63,7 @@ print("Election Results")
 print("--------------------------------------------------")
 print(f"Total Votes: {total_votes}")
 print("--------------------------------------------------")
-print_candidate_result(candidates_votes_dict)
+print_candidate_result(candidates_votes_dict,False)
 print("--------------------------------------------------")
 print(f"Winner: {', '.join(winner)}") # if more than one winners join them by ',' else print the one winner 
 print("--------------------------------------------------")
@@ -76,9 +79,7 @@ with open(output_path, 'w') as textfile:
     textfile.write("-----------------------------------\n")
     textfile.write(f"Total Votes: {total_votes}\n")
     textfile.write("-----------------------------------\n")
-    for candidate, votes in candidates_votes_dict.items():
-        percentage = (votes / total_votes) * 100
-        textfile.write(f"{candidate}: {percentage:0.3f}% ({votes})\n")
+    print_candidate_result(candidates_votes_dict,True)
     textfile.write("-----------------------------------\n")
     textfile.write(f"Winner: {', '.join(winner)}\n")
     textfile.write("-----------------------------------\n")
